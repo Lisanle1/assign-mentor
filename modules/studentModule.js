@@ -1,6 +1,7 @@
 const mongo=require('../connect');
 const { ObjectId } = require( 'mongodb' );
 
+  //.......................get students...........................//
 module.exports.getAllStudents=async(req,res)=>{
     try{
         const getResponse=await mongo.selectedDb.collection('students').find().toArray();
@@ -14,6 +15,7 @@ module.exports.getAllStudents=async(req,res)=>{
     }
 }
 
+//.......................Create Students...........................//
 module.exports.createStudent=async(req,res)=>{
     try{
         const existUser=await mongo.selectedDb.collection('students').find({$and:[{studentId:req.body.studentId},{studentName:req.body.studentName},{email:req.body.email}]}).count()>0
