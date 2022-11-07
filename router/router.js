@@ -7,7 +7,8 @@ router.post('/create-mentor',mentorModule.createMentor)
 router.post('/create-student',studentModule.createStudent)
 router.put('/assign-mentor/:id',mentorModule.assignStudentsToMentor)
 router.put('/assign-student/:id',studentModule.assignMentorToStudent)
+router.get('/mentor-students/:id',mentorModule.showAllAssignedStudents)
 router.get('/mentors',mentorModule.getAllMentors)
 router.get('/students',studentModule.getAllStudents)
 
-module.exports=router;
+module.exports=router;     
