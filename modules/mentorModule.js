@@ -1,6 +1,7 @@
 const { ObjectId } = require("mongodb");
 const mongo = require("../connect");
 
+//.......................Get Mentors...........................//
 module.exports.getAllMentors = async (req, res) => {
   try {
     const getResponse = await mongo.selectedDb
@@ -16,6 +17,7 @@ module.exports.getAllMentors = async (req, res) => {
   }
 };
 
+//.......................Create Mentor...........................//
 module.exports.createMentor = async (req, res) => {
   try {
     const existUser =
@@ -46,6 +48,7 @@ module.exports.createMentor = async (req, res) => {
   }
 };
 
+//.......................Select one mentor and Add multiple Student...........................//
 module.exports.assignStudentsToMentor = async (req, res) => {
   try {
     let id = req.params.id;
@@ -66,6 +69,8 @@ module.exports.assignStudentsToMentor = async (req, res) => {
     });
   }
 };
+
+//.......................API to show all students for a particular mentor...........................//
 module.exports.showAllAssignedStudents = async (req, res) => {
   try {
     let id = req.params.id;
